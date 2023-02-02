@@ -1,0 +1,13 @@
+.toolbar {
+    background-color: #43324c45;
+    height: 60px;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.h2 {
+    font-style: italic;
+    color: khaki;
+}
