@@ -1,1 +1,43 @@
-<p>formulario-reactivo works!</p>
+<div class="card">
+    <div class="card-body">
+        <form [formGroup]="formularioMatricula" class="was-validated">
+            <div class="mb-3">
+                <label for="exampleInputCurso" class="form-label">Curso</label>
+                <input formControlName="curso" type="text" class="form-control" id="exampleInputCurso"
+                    aria-describedby="emailHelp">
+                <!--Mensaje de validación -->
+                <!--.dirty es mejor de .touch para los imput-->
+                <div class="valid-feedback"*ngIf="formularioMatricula.controls['curso'].dirty && formularioMatricula.controls['curso'].valid">Correcto!</div>
+                <div class="invalido-feedback" *ngIf="formularioMatricula.controls['curso'].dirty && formularioMatricula.controls['curso'].errors?.['required']">Se necesita ingresar curso</div>
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputAlumno" class="form-label">Alumno</label>
+                <input formControlName="alumno" type="text" class="form-control" id="exampleInputAlumno">
+                <!--Mensaje de validación--> 
+                <div class="valid-feedback" *ngIf="formularioMatricula.controls['alumno'].dirty && formularioMatricula.controls['alumno'].valid">Correcto!</div>
+                <div class="invalido-feedback" *ngIf="formularioMatricula.controls['alumno'].dirty && formularioMatricula.controls['alumno'].errors?.['required']">Se necesita ingresar alumno</div>
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">Correo</label>
+                <input formControlName="correo" type="email" class="form-control" id="exampleInputEmail1">
+                <!--Mensaje de validación-->
+                <div class="valid-feedback" *ngIf="formularioMatricula.controls['correo'].dirty && formularioMatricula.controls['correo'].valid">Correcto!</div>
+                <div class="invalido-feedback" *ngIf="formularioMatricula.controls['correo'].dirty && formularioMatricula.controls['correo'].errors?.['required']">Se necesita ingresar correo</div>
+                <div class="invalido-feedback" *ngIf="formularioMatricula.controls['correo'].dirty && formularioMatricula.controls['correo'].errors?.['pattern']">No cumple con el formato del correo</div>
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputPassword" class="form-label">Nueva contraseña</label>
+                <input formControlName="contraseña" type="password" class="form-control" id="exampleInputPassword">
+                <!--Mensaje de validación-->
+                <div class="valid-feedback" *ngIf="formularioMatricula.controls['contraseña'].dirty && formularioMatricula.controls['contraseña'].valid">Correcto!</div>
+                <div class="invalido-feedback" *ngIf="formularioMatricula.controls['contraseña'].dirty && formularioMatricula.controls['contraseña'].errors?.['required']">Se necesita ingresar contraseña</div>
+                <div class="invalido-feedback" *ngIf="formularioMatricula.controls['contraseña'].dirty && formularioMatricula.controls['contraseña'].errors?.['minlength']">Ingrese una contraseña mayor a 7 digitos</div>
+            </div>
+            <div class="mb-3 form-check">
+                <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                <label class="form-check-label" for="exampleCheck1">Kit de Bienvenida</label>
+            </div>
+            <button type="submit" class="btn btn-primary" (click)="matricula()">Consultar matricula</button>
+        </form>
+    </div>
+  </div>
